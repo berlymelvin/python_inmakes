@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+
+
+    {{ product.description|truncatewords:155 }}
+
+
+
+{% endblock %}
+
+{% block title %}
+
+  {% if category %}
+    {{ product.name}} -- Ecom World
+
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <p> <a href="{% url 'ecom_app:AllProductCat' %}">Home</a>  | <a href="{{product.category.get_url}}">{{product.category}}</a>  {{product.name}}</p>
+  </div>
+</div>
+<div class="container"><div class="row">
+  <div class="col-md-6 col-6">
+    <div class="" id="over"><br>
+      <img src="{{product.image.url}}" alt="{{product.name}}" class="single-pro-image">
+    </div>
+  </div>
+
+<div class="col-md-6 col-6">
+  <div class=""><div>
+    <h1 class="pro-title">{{product.name}}</h1>
+
+    <p>₹ {{product.price}}</p>
+    <p class="text-justify justify">Product Description</p>
+    <p class="text-justify justify pro-content">{{product.description}}</p>
+    {% if product.stock <= 0 %}
+    <p class="justify"><b>Out of Stock</b></p>
+    {% else %}
+    <a href="{% url 'cart:add_cart' product.id %}" class="btn btn-secondary">Add to Cart</a>
+    <br><br>
+    {% endif %}
+  </div></div>
+</div></div></div>
+{% endblock %}

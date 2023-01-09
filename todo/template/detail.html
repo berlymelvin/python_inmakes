@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+  <div class="card shadow card1">
+            <h5>Item : {{task.item}} <a href="{% url 'todoapp:cbvupdate' task.id %}">
+                <button class="btn btn-light btn-done">✏</button></a>
+            </h5>
+            <h5>Priority : {{task.priority}} &nbsp; <a href="{% url 'todoapp:cbvdelete' task.id %}">
+                <button class="btn btn-light btn-done">✔</button> </a>
+            </h5>
+            <h6>Date : {{task.date}}</h6>
+        </div>
+
+
+{% endblock %}
