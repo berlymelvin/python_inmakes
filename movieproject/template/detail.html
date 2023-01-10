@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<a href="{% url 'movieapp:detail' movie.id %}"> <h2 class="m-banner-head">{{movie.name}} ({{movie.year}})</h2></a><br>
+<div class="row">
+
+<div class="col-md-4">
+<img src="{{movie.image.url}}" style="height:auto;width:100%;">
+
+<br>
+
+</div>
+
+<div class="col-md-8">{{movie.desc}}
+
+<br><br>
+    <a href="{% url 'movieapp:update_movie' movie.id %}">✍</a> &nbsp;&nbsp;
+    <a href="{% url 'movieapp:delete_movie' movie.id %}">🗑️</a>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h3>Are You Sure To Delete ?</h3>
+<div class="col-md-3">
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-outline-danger" value="Yes"> &nbsp; &nbsp;
+    <input type="button" class="btn btn-success" onClick="javascript:history.go(-1);" value="No">
+</form>
+    </div>
+<div class="col-md-3">
+
+
+</div>
+{% endblock %}
